@@ -3,7 +3,7 @@
 ## Requirements
 - perl v5.10
 - curl
-- Unix-like SO
+- Unix-like OS
 - Github Token
 
 ## Usage
