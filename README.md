@@ -1,7 +1,9 @@
 # Github Commits Retriever
 
 ## Requirements
-- Perl v5.10
+- perl v5.10
+- curl
+- Unix-like SO
 - Github Token
 
 ## Usage
