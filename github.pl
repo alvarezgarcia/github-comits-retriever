@@ -5,7 +5,6 @@ use warnings;
 use strict;
 use JSON;
 use Data::Dumper;
-use File::Slurp;
 use Getopt::Long qw(GetOptions);  
 
 die "No GITHUB_TOKEN env var\n" unless $ENV{GITHUB_TOKEN};
@@ -13,6 +12,15 @@ my $TOKEN = $ENV{GITHUB_TOKEN};
 
 my $GITHUB_GRAPHQL_API_URL = "https://api.github.com/graphql";
 my $HEADERS = "'Authorization: Bearer $TOKEN'";
+
+sub read_file {
+  my ($repo_file) = @_;
+  my $contents;
+  open my $fh, '<', $repo_file;
+  read $fh, $contents, -s $fh;
+
+  return $contents;
+}
 
 sub usage {
   return "Usage: GITHUB_TOKEN=XXXXXXX $0 --from=DATE --to=DATE --repo-owner=STRING --repo-file=STRING\n";
